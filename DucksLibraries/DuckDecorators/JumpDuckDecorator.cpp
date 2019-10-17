@@ -5,17 +5,21 @@
 #include <iostream>
 #include "JumpDuckDecorator.h"
 
-DuckDecorators::JumpDuckDecorator::JumpDuckDecorator(std::unique_ptr<Duck> duck)
-    : m_duck(std::move(duck))
-{
-}
+using namespace Ducks;
+using namespace DuckDecorators;
 
-void DuckDecorators::JumpDuckDecorator::jump() const
+void JumpDuckDecorator::jump() const
 {
     std::cout << "Boeing!!!";
 }
-void DuckDecorators::JumpDuckDecorator::makeCuack() const
+void JumpDuckDecorator::makeCuack() const
 {
     m_duck->makeCuack();
 }
+
+JumpDuckDecorator::JumpDuckDecorator(std::unique_ptr<Ducks::Duck> duck)
+{
+    m_duck = std::move(duck);
+}
+
 

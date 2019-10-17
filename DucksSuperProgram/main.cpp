@@ -2,10 +2,11 @@
 #include "SimpleDuck.h"
 #include "JumpDuckDecorator.h"
 
+using namespace Ducks;
+
 int main()
 {
-    auto duck = std::make_unique<Ducks::SimpleDuck>();
-    auto jumperDuck = DuckDecorators::JumpDuckDecorator(duck);
+    DuckDecorators::JumpDuckDecorator jumperDuck(std::make_unique<SimpleDuck>());
     jumperDuck.makeCuack();
     jumperDuck.jump();
     return 0;

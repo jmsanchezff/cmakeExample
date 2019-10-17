@@ -18,12 +18,12 @@ class JumpDuckDecorator: public Ducks::Duck
     JumpDuckDecorator& operator=(JumpDuckDecorator&&) = delete;
 
 public:
+    explicit JumpDuckDecorator(std::unique_ptr<Ducks::Duck> duck);
     ~JumpDuckDecorator() = default;
-    explicit JumpDuckDecorator(std::unique_ptr<Duck> duck);
     void makeCuack() const override;
     void jump() const;
 private:
-    std::unique_ptr<Duck> m_duck;
+    std::unique_ptr<Ducks::Duck> m_duck;
 };
 
 }
