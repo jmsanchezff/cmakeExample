@@ -1,9 +1,12 @@
-#include <iostream>
+#include <memory>
+#include "SimpleDuck.h"
+#include "JumpDuckDecorator.h"
 
 int main()
 {
-    Duck aDuck;
-    std::cout << "Hello, World!" << std::endl;
-    aDuck.makeCuack();
+    auto duck = std::make_unique<Ducks::SimpleDuck>();
+    auto jumperDuck = DuckDecorators::JumpDuckDecorator(duck);
+    jumperDuck.makeCuack();
+    jumperDuck.jump();
     return 0;
 }

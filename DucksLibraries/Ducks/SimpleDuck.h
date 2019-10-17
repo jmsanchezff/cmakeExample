@@ -3,13 +3,15 @@
 //
 #pragma once
 
+#include "Duck.h"
+
 namespace Ducks
 {
 
 class SimpleDuck : public Duck
 {
 public:
-    void makeCuack() const;
+    void makeCuack() const override;
 };
 
 }
